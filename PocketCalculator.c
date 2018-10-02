@@ -11,6 +11,7 @@
  * ----------------------------------------------------------
  */
  #include <stdio.h>
+<<<<<<< HEAD
  int main(int argc, char const *argv[]) {
    int selection;
    double firstNumber;
@@ -22,6 +23,9 @@
 
    return 0;
  }
+=======
+
+>>>>>>> 23dd75f83a00388644491deb71d0078f14690547
 
  int displayMenu(){
    int selection;
@@ -32,7 +36,11 @@
    return selection;
  }
 
+<<<<<<< HEAD
  void getOperants(double* firstNumber, double* secondNumber){
+=======
+ void getOperants(double &firstNumber, double &secondNumber){
+>>>>>>> 23dd75f83a00388644491deb71d0078f14690547
 
    printf("Bitte erste Zahl eingeben: \n");
    scanf("%lf\n", &firstNumber);

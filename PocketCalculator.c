@@ -16,7 +16,7 @@
  int displayMenu(){
    int selection;
 
-   printf("Add(1), Subtract(2), Multiply(3) or Divide(4)");
+   printf("Add(1), Subtract(2), Multiply(3), Divide(4) or End Program(-1): ");
    scanf("%d", &selection);
 
    return selection;
@@ -24,15 +24,15 @@
 
  void getOperants(double* firstNumber, double* secondNumber){
 
-   printf("Bitte erste Zahl eingeben: ");
+   printf("First Number: ");
    scanf("%lf", firstNumber);
 
-   printf("Bitte zweite Zahl eingeben: ");
+   printf("Second Number: ");
    scanf("%lf", secondNumber);
  }
 
  void printResults(double result){
-   printf("Das Ergebnis ist: %lf\n", result);
+   printf("Result: %lf\n", result);
  }
 
  void add(double firstNumber, double secondNumber){
@@ -79,12 +79,18 @@
       multiply(firstNumber, secondNumber);
       break;
      case 4:
-      divide(firstNumber, secondNumber);
+      if (secondNumber != 0) {
+        divide(firstNumber, secondNumber);
+      } else {
+        printf("Error! Division by 0!\n");
+        displayMenu();
+      }
+
       break;
-     case -1:
+      case -1:
       break;
     default :
-      printf("Ungültige Eingabe!\n");
+      printf("Error!\n");
       displayMenu();
       break;
    }
@@ -95,9 +101,13 @@
    double firstNumber;
    double secondNumber;
 
-   selection = displayMenu();
-   getOperants(&firstNumber, &secondNumber);
-   execute(selection, firstNumber, secondNumber);
+do {
+  selection = displayMenu();
+  if (selection != -1) {
+    getOperants(&firstNumber, &secondNumber);
+    execute(selection, firstNumber, secondNumber);
+  }
+} while(selection != -1);
 
    return 0;
  }

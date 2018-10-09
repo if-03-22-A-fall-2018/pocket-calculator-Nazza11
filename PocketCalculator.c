@@ -7,25 +7,11 @@
  * ----------------------------------------------------------
  * Description:
  * A simple Calculator where you can choose between Add,
-* Subtract, Multiply and Divide.
+ * Subtract, Multiply and Divide.
  * ----------------------------------------------------------
  */
  #include <stdio.h>
-<<<<<<< HEAD
- int main(int argc, char const *argv[]) {
-   int selection;
-   double firstNumber;
-   double secondNumber;
-
-   selection = displayMenu();
-   getOperants(&firstNumber, &secondNumber);
-   execute(selection, firstNumber, secondNumber);
-
-   return 0;
- }
-=======
-
->>>>>>> 23dd75f83a00388644491deb71d0078f14690547
+ #include <float.h>
 
  int displayMenu(){
    int selection;
@@ -36,17 +22,49 @@
    return selection;
  }
 
-<<<<<<< HEAD
  void getOperants(double* firstNumber, double* secondNumber){
-=======
- void getOperants(double &firstNumber, double &secondNumber){
->>>>>>> 23dd75f83a00388644491deb71d0078f14690547
 
-   printf("Bitte erste Zahl eingeben: \n");
-   scanf("%lf\n", &firstNumber);
+   printf("Bitte erste Zahl eingeben: ");
+   scanf("%lf", firstNumber);
 
-   printf("Bitte zweite Zahl eingeben: \n");
-   scanf("%lf\n", &secondNumber);
+   printf("Bitte zweite Zahl eingeben: ");
+   scanf("%lf", secondNumber);
+ }
+
+ void printResults(double result){
+   printf("Das Ergebnis ist: %lf\n", result);
+ }
+
+ void add(double firstNumber, double secondNumber){
+   double sum;
+
+   sum = firstNumber + secondNumber;
+
+   printResults(sum);
+}
+
+ void subtract(double firstNumber, double secondNumber){
+   double sum;
+
+   sum = firstNumber - secondNumber;
+
+   printResults(sum);
+ }
+
+ void multiply(double firstNumber, double secondNumber){
+   double sum;
+
+   sum = firstNumber * secondNumber;
+
+   printResults(sum);
+ }
+
+ void divide(double firstNumber, double secondNumber){
+   double sum;
+
+   sum = firstNumber / secondNumber;
+
+   printResults(sum);
  }
 
  void execute(int selection, double firstNumber, double secondNumber) {
@@ -72,36 +90,14 @@
    }
  }
 
- void add(double firstNumber, double secondNumber){
-   int sum;
+ int main(int argc, char const *argv[]) {
+   int selection;
+   double firstNumber;
+   double secondNumber;
 
-   sum = firstNumber + secondNumber;
-}
+   selection = displayMenu();
+   getOperants(&firstNumber, &secondNumber);
+   execute(selection, firstNumber, secondNumber);
 
- void subtract(double firstNumber, double secondNumber){
-   int sum;
-
-   sum = firstNumber - secondNumber;
-
-   printResults(sum);
- }
-
- void multiplay(double firstNumber, double secondNumber){
-   int sum;
-
-   sum = firstNumber * secondNumber;
-
-   printResults(sum);
- }
-
- void divide(double firstNumber, double secondNumber){
-   int sum;
-
-   sum = firstNumber / secondNumber;
-
-   printResults(sum);
- }
-
- void printResults(double result){
-   printf("Das Ergebnis ist: %lf\n", result);
+   return 0;
  }
